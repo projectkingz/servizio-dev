@@ -1,0 +1,77 @@
+<%= render 'shared/errors', obj: @listing %>
+<p>
+  <p>
+
+    <%= form_for(@listing, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+
+      <div class='form-group row'>
+        <div class='col-sm-8'>
+             <%= f.label :title %>
+         </div>
+         <div class='col-sm-8 mb-4'>
+             <%= f.text_field :title, class: 'form-control', placeholder: 'Listing Category...', autofocus: true %>
+         </div>
+       </div>
+
+
+       <div class='form-group row'>
+         <div class='col-sm-8'>
+              <%= f.label :title %>
+          </div>
+          <div class='col-sm-8 mb-4'>
+              <%= f.text_field :title, class: 'form-control', placeholder: 'Brief title for your listing...', autofocus: true %>
+          </div>
+        </div>
+
+
+        <div class='form-group row'>
+          <div class='col-sm-8'>
+               <%= f.label :description %>
+           </div>
+           <div class='col-sm-8 mb-4'>
+               <%= f.text_area :description, rows: 10, class: 'form-control', placeholder: 'Description...', autofocus: true %>
+           </div>
+        </div>
+
+
+        <div class='form-group row'>
+          <div class='col-sm-2 mb-3'>
+               <%= f.label :booking_date %>
+               <%= f.text_field :booking_date, class: 'form-control', placeholder: 'Date...', autofocus: true %>
+           </div>
+           <div class='col-sm-2 mb-3 offset-md-1'>
+                <%= f.label :budget %>
+                <%= f.text_field :budget, class: 'form-control', placeholder: 'Your Budget...', autofocus: true %>
+            </div>
+            <div class='col-sm-2 mb-3 offset-md-1'>
+                 <%= f.label :postcode %>
+                 <%= f.text_field :postcode, class: 'form-control', placeholder: 'Your Postcode...', autofocus: true %>
+             </div>
+        </div>
+
+        <div class='form-group row'>
+          <div class="row">
+          <div class='col-sm-12'>
+            <% Category.all.each do |category| %>
+              <%= check_box_tag "listing[category_ids][]", category.id %>
+              <%= category.name %><br>
+            <% end %>
+
+            <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+            <%= cb.label(class: "checkbox-inline input_checkbox"){cb.check_box(class: "checkbox") + cb.text} %>
+            <% end %>
+
+          </div>
+          </div>
+        </div>
+
+         <div class='form-group row'>
+           <div class='col-sm-8'>
+             <%= f.submit class: 'btn btn-primary btn-lg' %>
+           </div>
+         </div>
+
+
+
+
+ <% end %>

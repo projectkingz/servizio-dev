@@ -1,0 +1,154 @@
+<section class="hero is-primary is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8-table is-8-desktop is-8-widescreen">
+          <div class="box">
+
+
+            <%= form_for(@user, :url => wizard_path, :method => :put) do |f| %>
+              <%= fields_for :address do |ff| %>
+
+            <div class="container">
+            <p class="panel-heading">
+            Address Details
+            </p>
+
+            <%= ff.hidden_field :type, value: 'AddressHome' %>
+
+            <div class="field is-horizontal">
+            <div class="field-body">
+            <div class="field">
+            <label class="label">Number / Building Name</label>
+            <p class="control is-expanded has-icons-left has-icons-right">
+            <%= ff.text_field :address_street_number, autofocus: true,  :placeholder => "28", class: "input", required: "true", autocomplete: "address_street_number" %>
+            <span class="icon is-small is-left">
+            <i class="fas fa-home"></i>
+            </span>
+            <span class="icon is-small is-right">
+            <i class="fas fa-check"></i>
+            </span>
+            </p>
+            </div>
+            <div class="field">
+            <label class="label">Street / Road Name </label>
+            <p class="control is-expanded has-icons-left has-icons-right">
+            <%= ff.text_field :address_street_name, autofocus: true,  :placeholder => "Prime Minister Road", class: "input", required: "true", autocomplete: "address_street_name" %>
+            <span class="icon is-small is-left">
+            <i class="fas fa-home"></i>
+            </span>
+            <span class="icon is-small is-right">
+            <i class="fas fa-check"></i>
+            </span>
+            </p>
+            </div>
+            </div>
+            </div>
+
+            <div class="field is-horizontal">
+            <div class="field-body">
+            <div class="field">
+            <label class="label">Town</label>
+            <p class="control is-expanded has-icons-left has-icons-right">
+            <%= ff.text_field :address_town, autofocus: true,  :placeholder => "Albans Village", class: "input", required: "true", autocomplete: "address_town" %>
+            <span class="icon is-small is-left">
+            <i class="fas fa-home"></i>
+            </span>
+            <span class="icon is-small is-right">
+            <i class="fas fa-check"></i>
+            </span>
+            </p>
+            </div>
+            </div>
+            </div>
+
+            <div class="field is-horizontal">
+            <div class="field-body">
+            <div class="field">
+            <label class="label">City</label>
+            <p class="control is-expanded has-icons-left has-icons-right">
+            <%= ff.text_field :address_city, autofocus: true,  :placeholder => "Stevenage", class: "input", required: "true", autocomplete: "address_city" %>
+            <span class="icon is-small is-left">
+            <i class="fas fa-home"></i>
+            </span>
+            <span class="icon is-small is-right">
+            <i class="fas fa-check"></i>
+            </span>
+            </p>
+            </div>
+            </div>
+            </div>
+
+             <div class="field is-horizontal">
+             <div class="field-body">
+             <div class="field">
+             <label class="label">County</label>
+             <p class="control is-expanded has-icons-left has-icons-right">
+             <%= ff.text_field :address_county, autofocus: true,  :placeholder => "Hertfordshire", class: "input", required: "true", autocomplete: "address_county" %>
+             <span class="icon is-small is-left">
+             <i class="fas fa-home"></i>
+             </span>
+             <span class="icon is-small is-right">
+             <i class="fas fa-check"></i>
+             </span>
+             </div>
+
+             </div>
+             </div>
+
+             <div class="field is-horizontal">
+
+             <div class="field-body">
+             <div class="field">
+             <label class="label">Country</label>
+             <p class="control is-expanded has-icons-left has-icons-right">
+             <%= ff.text_field :address_country, autofocus: true,  :placeholder => "United Kingdom", class: "input", required: "true", autocomplete: "address_country" %>
+             <span class="icon is-small is-left">
+             <i class="fas fa-city"></i>
+             </span>
+             <span class="icon is-small is-right">
+             <i class="fas fa-check"></i>
+             </span>
+             </div>
+
+             </div>
+             </div>
+
+             <div class="field is-horizontal">
+
+             <div class="field-body">
+             <div class="field">
+             <label class="label">Postal Code</label>
+             <p class="control is-expanded has-icons-left has-icons-right">
+             <%= ff.text_field :address_post_code, autofocus: true,  :placeholder => "AA10 1BA", class: "input", required: "true", autocomplete: "address_post_code" %>
+             <span class="icon is-small is-left">
+             <i class="fas fa-city"></i>
+             </span>
+             <span class="icon is-small is-right">
+             <i class="fas fa-check"></i>
+             </span>
+             </div>
+
+             </div>
+             </div>
+
+
+                <div class="field">
+                  <%= f.submit(@user.new_record? ? "Sign up":"Save Address...", class: 'button is-link is-active') %>
+               </div>
+
+
+
+              <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<% link_to 'skip', next_wizard_path %>

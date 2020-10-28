@@ -1,0 +1,185 @@
+<section class="section">
+    <div class="container">
+        <div class="columns">
+
+            <!-- LEFT SIDE -->
+            <div class="column is-one-third">
+                <div class="columns is-multiline">
+
+                    <!-- Top Card -->
+                    <div class="column is-full">
+                        <div class="card">
+
+                            <!-- Avatar -->
+                            <div class="card-content is-horizontal-center is-flex">
+                              <figure class="image is-128x128">
+                                <%= image_tag avatar_url(current_trade), class:"is-rounded" %>
+                              </figure>
+                            </div>
+
+                            <div class="card-content">
+
+                                <!-- Upload Button -->
+                                <div class="content has-text-centered">
+                                  <p class="title is-5"><%= current_trade.full_name %></p>
+                                    <%= form_for :trade, url: trades_edit_url(@trade), action: :update, method: :post do |f| %>
+                                    <div class="file">
+                                      <label class="button is-primary is-outlined is-fullwidth">
+                                        <%= f.file_field :avatar, class: "file-input", onchange: "this.form.submit();" %>
+                                        <i class="fas fa-upload"></i>&nbsp;&nbsp;&nbsp;&nbsp;Upload Avatar
+                                      </label>
+                                    </div>
+                                    <% end %>
+                                </div>
+                                <hr class="h-10">
+
+                                <!-- Member -->
+                                <article class="media">
+                                  <div class="media-content">Member since</div>
+                                  <div class="media-right">
+                                    <strong><%= current_trade.created_at.strftime('%b %Y') %></strong>
+                                  </div>
+                                </article>
+                                <hr class="h-10">
+
+                                <!-- From -->
+                                <article>
+                                  <div class="media">
+                                    <div class="media-content">From</div>
+                                      <div class="media-right">
+                                        <strong><%= current_trade.from %></strong> <i class="toggle far fa-edit" aria-controls="user-from"></i>
+                                      </div>
+                                    </div>
+                                    <div class="content">
+                                      <%= form_for :trade, url: trades_edit_url(@trade), action: :update, method: :post, html: {id: 'trade-from', class: 'is-hidden'} do |f| %>
+                                      <div class="field">
+                                        <%= f.text_field :from, autofocus: true, autocomplete: 'form', class: 'input' %>
+                                      </div>
+                                        <a class="toggle button is-light" aria-controls="trade-from">Cancel</a>
+                                        <%= f.submit "Save", class: "button is-danger" %>
+                                        <% end %>
+                                    </div>
+                                </article>
+                                <hr class="h-10">
+
+                                <!-- Online Status -->
+                                <article>
+                                  <div class="media">
+                                    <div class="media-content">Online Status</div>
+                                    <div class="media-right">
+                                      <strong><% if current_trade.status %>Online <% else %> Offline <% end %></strong> <i class="toggle far fa-edit" aria-controls="trade-status"></i>
+                                    </div>
+                                  </div>
+
+                                  <div class="content">
+                                      <%= form_for :trade, url: trades_edit_url(@trade), action: :update, method: :post, html: {id: 'trade-status', class: 'is-hidden'} do |f| %>
+                                      <div class="field">
+                                        <%= f.select(:status, options_for_select([["Online", true],["Offline", false]]), {} ,{class: "select is-fullwidth"}) %>
+                                      </div>
+                                        <a class="toggle button is-light" aria-controls="trade-status">Cancel</a>
+                                        <%= f.submit "Save", class: "button is-danger" %>
+                                        <% end %>
+                                    </div>
+
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Card -->
+                    <div class="column is-full">
+                        <div class="card">
+                            <div class="card-content">
+
+                                <!-- About -->
+                                <article>
+                                  <div class="media">
+                                    <div class="media-content">
+                                      <P>
+                                        <strong>About Yourself</strong>
+                                        <br/>
+                                        <%= current_trade.about %>
+                                      </p>
+                                    </div>
+                                      <div class="media-right">
+                                        <i class="toggle far fa-edit" aria-controls="trade-about"></i>
+                                      </div>
+                                    </div>
+                                    <div class="content">
+                                      <%= form_for :trade, url: trades_edit_url(@trade), action: :update, method: :post, html: {id: 'trade-about', class: 'is-hidden'} do |f| %>
+                                      <div class="field">
+                                        <%= f.text_field :about, autofocus: true, autocomplete: 'form', class: 'input' %>
+                                      </div>
+                                        <a class="toggle button is-light" aria-controls="trade-about">Cancel</a>
+                                        <%= f.submit "Save", class: "button is-danger" %>
+                                        <% end %>
+                                    </div>
+                                </article>
+                                <hr class="h-10">
+
+                                <!-- Languages -->
+                                <article>
+                                  <div class="media">
+                                    <div class="media-content">
+                                      <P>
+                                        <strong>Language</strong>
+                                        <br/>
+
+                                      </p>
+                                    </div>
+                                      <div class="media-right">
+                                        <%= current_trade.language %></strong> <i class="toggle far fa-edit" aria-controls="trade-language"></i>
+                                      </div>
+                                    </div>
+                                    <div class="content">
+                                      <%= form_for :trade, url: trades_edit_url(@trade), action: :update, method: :post, html: {id: 'trade-language', class: 'is-hidden'} do |f| %>
+                                      <div class="field">
+                                        <%= f.text_field :language, autofocus: true, autocomplete: 'form', class: 'input' %>
+                                      </div>
+                                        <a class="toggle button is-light" aria-controls="trade-language">Cancel</a>
+                                        <%= f.submit "Save", class: "button is-danger" %>
+                                        <% end %>
+                                    </div>
+                                </article>
+                                <hr class="h-10">
+
+                                <!-- Linked Account -->
+                                <article class="media">
+                                  <div class="content">
+                                    <p>
+                                      <strong>Linked Account</strong><br/>
+
+                                        <% if current_trade.uid %>
+                                          <span class="has-text-success">Facebook Verified</span>
+                                        <% else %>
+                                          <%= link_to 'Connect to Facebook', user_facebook_omniauth_authorize_path, class: "has-text-danger" %>
+                                        <% end %>
+
+
+                                      </p>
+                                  </div>
+                                </article>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE -->
+            <div class="column">
+                <div class="columns is-multiline">
+
+                    <!-- Create New Gig -->
+                    <div class="column is-one-third has-text-centered"></div>
+
+                    <!-- Sample Gig -->
+                    <div class="column is-one-third has-text-centered"></div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

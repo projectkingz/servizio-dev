@@ -1,0 +1,16 @@
+<div class="container">
+      <h4>Listings</h4>
+
+
+      <%= render 'listing', obj: @listings %>
+
+
+          <div class="digg_pagination">
+            <div align="center">
+                <div class="page_info">
+                  <%= page_entries_info @listings %>
+                </div>
+                  <%= will_paginate(@listings)  %>
+                </div>
+          </div>
+</div>

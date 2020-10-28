@@ -1,0 +1,36 @@
+<tr class="nested-fields">
+  <td>
+      <div class="form-row">
+        <div class="form-group control col-md-6 mb-4">
+          <%= f.label :overview, 'Pricing Overview : ' %>
+          <%= f.text_field :overview, class: 'input is-focused form-control', type: 'text', placeholder: 'Overview', autofocus: true  %>
+        </div>
+
+        <div class="form-group control col-md-2 mb-4">
+          <%= f.label :pricing_type, 'Pricing Type : ' %>
+              <div class= 'is-focused field has-addons control is-expanded select is-fullwidth'>
+                    <%= f.select(:pricing_type, options_for_select([['Bronze',0],['Silver', 1],['Gold',2],['Platinum', 3]]), class: 'is-focused') %>
+              </div>
+        </div>
+
+        <div class="form-group control col-md-2 mb-4">
+          <%= f.label :price, 'Listing Price £: ' %>
+          <%= f.text_field :price, class: 'input is-focused form-control', type: 'text', placeholder: 'Price Charged', autofocus: true  %>
+        </div>
+
+        <div class="form-group control col-md-2 mb-4">
+          <%= f.label :delivery_time, 'Delivery Time : ' %>
+          <%= f.text_field :delivery_time, class: 'input is-focused form-control', type: 'text', placeholder: 'Delivery Time', autofocus: true  %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :description, 'Description : ' %>
+        <%= f.text_area :description, class: 'input is-focused form-control', type: 'text', placeholder: 'Describe Price Element', autofocus: true , size: "5x5"  %>
+      </div>
+
+      <div class="form-group">
+        <%= link_to_remove_association "Remove Pricing", f, class: 'btn btn-danger btn-xs' %>
+      </div>
+
+  </td>
+</tr>

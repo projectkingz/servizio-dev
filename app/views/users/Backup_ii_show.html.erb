@@ -1,0 +1,23 @@
+<div class="container tn_top_bottom_spacer">
+
+<h3 align="center">Welcome to <%= @user.username %>'s page</h3>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <%= image_tag user_avatar(@user, 150), class: "rounded-circle mx-auto d-block" %>
+  </div>
+</div>
+<br />
+<h4 align="center"><%= @user.username %>'s listings</h4>
+
+<%= render 'listings/listing', obj: @user_listings %>
+      <div class="digg_pagination">
+        <div align="center">
+            <div class="page_info">
+              <%= page_entries_info @user_listings %>
+            </div>
+              <%= will_paginate @user_listings  %>
+        </div>
+      </div>
+</div>

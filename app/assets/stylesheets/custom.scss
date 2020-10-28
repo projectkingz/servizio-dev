@@ -1,0 +1,284 @@
+@import 'bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Raleway:600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=PT+Sans&display=swap');
+
+body {
+  //font-family: 'Raleway', sans-serif;
+  //font-family: 'Noto Sans KR', sans-serif;
+  //font-family: 'Amatic SC', cursive;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 15px;
+  font-weight:normal;
+  font-style: italic;
+}
+
+.listing-meta-details {
+  border-top: 1px solid #eaeaea;
+  margin-top: 15px;
+
+}
+
+.listing-actions {
+  border-top: 1px solid #eaeaea;
+  padding-top: 5px;
+}
+
+.description {
+  margin-top: 0;
+}
+
+.listing-title {
+  font-weight: bold;
+  font-size: 1.3em;
+}
+
+.listing-body {
+  border-top: 1px solid #eaeaea;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+@charset "UTF-8";
+.navbar {
+  width: 100%;
+}
+@media (max-with: 34em) {
+  .navbar {
+    background: black !important;
+  }
+}
+.navbar .navbar-toggler {
+  cursor: pointer;
+  outline: 0;
+}
+.navbar .nav-link {
+  text-transform: capitalize;
+}
+nav {
+  margin-bottom: 150px;
+}
+
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: #fff;
+  letter-spacing: -1px;
+  font-weight: normal;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+// footer
+footer {
+  margin-top: 45px;
+  margin-left: 45px;
+  margin-right: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+}
+
+footer a:hover {
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 15px;
+}
+
+// end footer
+
+// flash messages
+//
+// .alert-notice {
+//   position: absolute;
+//   top: 0px;
+//   width: 100%;
+//   z-index: 1500;
+//   // background-color: #dff0d8;
+//   background-color: #006400;
+//   border-color: #d6e9c6;
+//   padding: 0.1rem 0;
+// #flash_notice {
+//   padding: 1.25rem 0;
+//   text-align: center;
+//   margin: 0;
+//   font-size: 1.25rem;
+//   // color: #468847;
+//   color: #ffffff;
+//   letter-spacing: 1px;
+//   }
+// }
+//
+// .alert-success {
+//   position: absolute;
+//   top: 0px;
+//   width: 100%;
+//   z-index: 1500;
+//   // background-color: #dff0d8;
+//   background-color: #006400;
+//   border-color: #d6e9c6;
+//   padding: 0.1rem 0;
+// #flash_success {
+//   padding: 1.25rem 0;
+//   text-align: center;
+//   margin: 0;
+//   font-size: 1.25rem;
+//   // color: #468847;
+//   color: #ffffff;
+//   letter-spacing: 1px;
+//   }
+// }
+//
+//
+// .alert-alert {
+//   position: absolute;
+//   top: 0px;
+//   width: 100%;
+//   z-index: 1500;
+//   background-color: #f2dede;
+//   border-color: #eed3d7;
+//   padding: 0.1rem 0;
+// #flash_alert {
+//   padding: 1.25rem 0;
+//   text-align: center;
+//   margin: 0;
+//   font-size: 1.25rem;
+//   color: #b94a48;
+//   letter-spacing: 1px;
+//   }
+// }
+//
+// .alert-danger {
+//   position: absolute;
+//   top: 0px;
+//   width: 100%;
+//   z-index: 1500;
+//   background-color: #f2dede;
+//   border-color: #eed3d7;
+//   padding: 0.1rem 0;
+// #flash_danger {
+//   padding: 1.25rem 0;
+//   text-align: center;
+//   margin: 0;
+//   font-size: 1.25rem;
+//   color: #b94a48;
+//   letter-spacing: 1px;
+//   }
+// }
+
+// end flash messages
+
+
+
+
+
+// jumbotron
+/* _jumbotron.scss:1 */
+// .jumbotron {
+//   padding: $jumbotron-padding ($jumbotron-padding / 2);
+//   margin-bottom: $jumbotron-padding;
+//   background-color: $jumbotron-bg;
+//   @include border-radius($border-radius-lg);
+//
+//   @include media-breakpoint-up(sm) {
+//     padding: ($jumbotron-padding * 2) $jumbotron-padding;
+//   }
+// }
+
+/* _jumbotron.scss:12 */
+// .jumbotron-fluid {
+//   padding-right: 0;
+//   padding-left: 0;
+//   @include border-radius(0);
+// }
+
+
+// end jumbotron
+
+// personal container class
+
+.tn_top_bottom_spacer {
+  margin-top : 40px;
+  margin-bottom : 40px;
+}
+
+
+// end personal container class
+
+
+
+// user index listing
+
+.user-listing {
+  list-style: none;
+  padding-left: 0;
+  border : 1px solid black !important;
+  margin-top : 20px;
+  margin-bottom : 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+}
+
+// end index listing
+
+// job category listings
+
+.job-listing {
+  list-style: none;
+  padding-left: 0;
+  margin-top : 5px;
+  margin-bottom : 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 2rem;
+  font-weight: bold;
+
+}
+
+.badge {
+  background-color: #CEF6F5;
+  text-transform: capitalize;
+  letter-spacing: -1px;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+// end job category listing
+
+
+
+
+
+// category formatting
+
+.input_checkbox input {
+  width: auto !important;
+}
+
+
+
+// end category formatting
+
+// @import "bulma-rails";
+// @import "bulma-extensions";
+
+
+a:link {
+  text-decoration: none;
+}

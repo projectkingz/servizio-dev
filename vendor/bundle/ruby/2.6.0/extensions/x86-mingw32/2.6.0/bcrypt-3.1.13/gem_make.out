@@ -1,0 +1,23 @@
+current directory: C:/Users/User/Desktop/RubyTutorials/testdev/vendor/bundle/ruby/2.6.0/gems/bcrypt-3.1.13/ext/mri
+C:/Ruby26/bin/ruby.exe -I C:/Ruby26/lib/ruby/2.6.0 -r ./siteconf20200208-4956-1o9xbnx.rb extconf.rb
+creating Makefile
+
+current directory: C:/Users/User/Desktop/RubyTutorials/testdev/vendor/bundle/ruby/2.6.0/gems/bcrypt-3.1.13/ext/mri
+make "DESTDIR=" clean
+bash.exe: warning: could not find /tmp, please create!
+
+current directory: C:/Users/User/Desktop/RubyTutorials/testdev/vendor/bundle/ruby/2.6.0/gems/bcrypt-3.1.13/ext/mri
+make "DESTDIR="
+generating bcrypt_ext-i386-mingw32.def
+bash.exe: warning: could not find /tmp, please create!
+compiling bcrypt_ext.c
+compiling crypt_blowfish.c
+i686-w64-mingw32-gcc  -D__SKIP_GNU -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64   -c -o x86.o x86.S
+compiling crypt_gensalt.c
+compiling wrapper.c
+linking shared-object bcrypt_ext.so
+
+current directory: C:/Users/User/Desktop/RubyTutorials/testdev/vendor/bundle/ruby/2.6.0/gems/bcrypt-3.1.13/ext/mri
+make "DESTDIR=" install
+bash.exe: warning: could not find /tmp, please create!
+/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20200208-4956-7o0cce

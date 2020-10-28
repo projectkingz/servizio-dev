@@ -1,0 +1,66 @@
+<section class="section">
+  <div class="container">
+    <p class="title">
+
+        All Offers
+        <%= link_to 'Post an offer', new_offer_path, class: "button is-primary is-pulled-right"  %>
+      </p>
+      <div class="card">
+        <div class="card-header">
+          <%= form_tag '', method: :get do %>
+          <div class="field p-10">
+            <div class="select">
+              <%= select_tag 'category', content_tag(:option, 'All Categories', value: "" ) +
+                                                      options_for_select(@categories.map { |c| [c.name, c.id] },
+                                                      selected: @category_id) ,
+                                                      onchange: "this.form.submit(); "
+                                                       %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <div class="card-content">
+
+          <table class="table is-fullwidth">
+              <thead>
+              <tr>
+                <th>Created On</th>
+                <th>Trader</th>
+                <th>Offer Detail</th>
+                <th class="has-text-centered">Booking(s)</th>
+                <th class="has-text-centered">Duration</th>
+                <th class="has-text-centered">Offer Price</th>
+              </tr>
+              </thead>
+              <tbody>
+                <% if @offers.blank? %>
+                  <tr>
+                    <td colspan="6" class="has-text-centered"><h1>No Offers Currently Available</h1></td>
+                  </tr>
+                <% end %>
+                <% @offers.each do |o| %>
+                <tr>
+                  <td><%= o.created_at.strftime('%d, %b, %Y') %></td>
+                  <td>
+                    <figure class="image is-48x48">
+                      <%= image_tag avatar_url(o.trade), class: "is-rounded" %>
+                    </figure>
+                  </td>
+                  <td>
+                    <%= link_to offer_path(o), class: "tootip" do %>
+                      <label for=""  data-tooltip title="<%= o.description %>">
+                        <%= truncate(o.title ,:ommision => "... Read More", :length => 25 ) %>
+                      </label>
+                    <% end %>
+                  </td>
+                  <td class="has-text-right"><%= link_to o.bookings.count, offer_bookings_path(o) %></td>
+                  <td class="has-text-right"><%= pluralize(o.delivery, 'day') %></td>
+                  <td class="has-text-right">£<%= o.price %></td>
+                </tr>
+                <% end %>
+              </tbody>
+          </table>
+        </div>
+      </div>
+  </div>
+</section>

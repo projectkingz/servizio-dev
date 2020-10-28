@@ -1,0 +1,45 @@
+<%= render 'shared/errors', obj: @user %>
+<p>
+  <p>
+
+     <%= form_for(@user, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+
+
+     <div class='form-group row'>
+       <div class='col-sm-8'>
+            <%= f.label :username %>
+        </div>
+        <div class='col-sm-8 mb-4'>
+            <%= f.text_field :username, class: 'form-control', placeholder: 'Enter username', autofocus: true %>
+        </div>
+      </div>
+
+      <div class='form-group row'>
+        <div class='col-sm-8'>
+             <%= f.label :email %>
+         </div>
+         <div class='col-sm-8 mb-4'>
+             <%= f.email_field :email, class: 'form-control', placeholder: 'Enter email', autofocus: true %>
+         </div>
+       </div>
+
+
+       <div class='form-group row'>
+         <div class='col-sm-8'>
+              <%= f.label :password %>
+          </div>
+          <div class='col-sm-8 mb-4'>
+              <%= f.password_field :password, class: 'form-control', placeholder: 'Enter password', autofocus: true %>
+          </div>
+        </div>
+
+
+         <div class='form-group row'>
+           <div class='col-sm-8'>
+             <%= f.submit(@users.new_record? ? "Sign up":"Update account", class: 'btn btn-primary btn-lg') %>
+           </div>
+         </div>
+         <% end %>
+         <div class='col-xs-4 offset-sm-2'>
+             [ <%= link_to 'Return to active listings', @listing %> ]
+         </div>

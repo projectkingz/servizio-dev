@@ -1,0 +1,19 @@
+current directory: C:/Users/User/Desktop/RubyTutorials/testdev/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.5/ext/bootsnap
+C:/Ruby26/bin/ruby.exe -I C:/Ruby26/lib/ruby/2.6.0 -r ./siteconf20200208-4956-1ro851a.rb extconf.rb
+creating Makefile
+
+current directory: C:/Users/User/Desktop/RubyTutorials/testdev/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.5/ext/bootsnap
+make "DESTDIR=" clean
+bash.exe: warning: could not find /tmp, please create!
+
+current directory: C:/Users/User/Desktop/RubyTutorials/testdev/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.5/ext/bootsnap
+make "DESTDIR="
+generating bootsnap-i386-mingw32.def
+bash.exe: warning: could not find /tmp, please create!
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.so
+
+current directory: C:/Users/User/Desktop/RubyTutorials/testdev/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.5/ext/bootsnap
+make "DESTDIR=" install
+bash.exe: warning: could not find /tmp, please create!
+/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20200208-4956-jxmhfi/bootsnap

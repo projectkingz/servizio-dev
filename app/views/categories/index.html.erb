@@ -1,0 +1,30 @@
+
+  <p>
+    <p>
+<div align="center">
+<h1 align='center'>Listing All Job Categories</h1>
+
+
+      <% @categories.each do |category| %>
+      <div class="card bg-light text-center col-md-8">
+      <div class="card-body">
+      <div class='job-listing'>
+      <h4 class="card-title"><%= link_to "#{category.name}", category_path(category) %></h4>
+      <li><small><%= pluralize(category.listings.count, "job") %></small></li>
+      </div>
+      </div>
+      </div>
+      <p>
+        <p>
+      <% end %>
+
+            <div class="digg_pagination">
+                  <div align="center">
+                      <div class="page_info">
+                          <%= page_entries_info @categories %>
+                      </div>
+                          <%= will_paginate @categories  %>
+                  </div>
+            </div>
+
+</div>

@@ -1,0 +1,17 @@
+<div class="container">
+      <h4 align="center"><%= "Category: " + @category.name %></h4>
+      <div align="center">
+        <span class="badge"><%= link_to "Edit Category Name", edit_category_path(@category) %></span>
+      </div>
+
+      <%= render 'listings/listing', obj: @category_listings %>
+
+          <div class="digg_pagination">
+            <div align="center">
+                <div class="page_info">
+                  <%= page_entries_info @category_listings %>
+                </div>
+                  <%= will_paginate @category_listings  %>
+                </div>
+          </div>
+</div>

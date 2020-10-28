@@ -1,0 +1,30 @@
+<div class="container tn_top_bottom_spacer">
+    <h3 align="center"> Servizio Trade Users </h3>
+    <div align="center">
+            <% @trade.each do |trade| %>
+              <ul class = "user-listing">
+                      <div class="row">
+                            <div class="col-md-4">
+                                        <li><%= image_tag user_avatar(trade, 150), class: "rounded-circle mx-auto d-block" %><li>
+                                                <li class="listing-title">
+                                                  <%= link_to trade.username, user_path(trade) %>
+                                                </li>
+                            </div>
+<div class="col-md-8 text-left">
+      <li><%= pluralize(trade.listings.count, "job") if trade.listings %> posted by <%= trade.username %></li>
+</div>
+
+                        </div>
+                </ul>
+        <% end %>
+            <div class="digg_pagination">
+              <div align="center">
+                  <div class="page_info">
+                    <%= page_entries_info @trade %>
+                  </div>
+                    <%= will_paginate @trade  %>
+                  </div>
+            </div>
+
+    </div>
+</div>

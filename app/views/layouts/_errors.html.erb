@@ -1,0 +1,37 @@
+<% if obj.errors.any? %>
+  <script>
+    <% obj.errors.full_messages.each do |msg| %>
+        new Noty ({
+          type: 'error',
+          layout: 'topRight',
+          timeout: '3000',
+          theme: 'sunset',
+          text: '<%= msg %>'
+        }).show()
+      <% end %>
+    </script>
+<% end %>
+
+
+
+<!-- % if obj.errors.any? %>
+<div class='row'>
+  <div class='col-sm-8'>
+    <div class='card text-danger alert-danger'>
+      <div class='card-header'>
+        <h4 class='card-title'>
+          %= pluralize(obj.errors.count, "error") %>
+          prohibited this article from being saved:
+          </h4>
+          <div class='card-body'>
+            <ul>
+              % obj.errors.full_messages.each do |msg| %>
+                <li>%= msg %></li>
+              % end %>
+            </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+% end %> -->

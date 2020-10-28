@@ -1,0 +1,24 @@
+current directory: C:/Users/User/Desktop/RubyTutorials/testdev/vendor/bundle/ruby/2.6.0/gems/puma-3.12.1/ext/puma_http11
+C:/Ruby26/bin/ruby.exe -I C:/Ruby26/lib/ruby/2.6.0 -r ./siteconf20200208-4956-pzdr67.rb extconf.rb
+checking for BIO_read() in -lcrypto... no
+checking for BIO_read() in -llibeay32... no
+creating Makefile
+
+current directory: C:/Users/User/Desktop/RubyTutorials/testdev/vendor/bundle/ruby/2.6.0/gems/puma-3.12.1/ext/puma_http11
+make "DESTDIR=" clean
+bash.exe: warning: could not find /tmp, please create!
+
+current directory: C:/Users/User/Desktop/RubyTutorials/testdev/vendor/bundle/ruby/2.6.0/gems/puma-3.12.1/ext/puma_http11
+make "DESTDIR="
+generating puma_http11-i386-mingw32.def
+bash.exe: warning: could not find /tmp, please create!
+compiling http11_parser.c
+compiling io_buffer.c
+compiling mini_ssl.c
+compiling puma_http11.c
+linking shared-object puma/puma_http11.so
+
+current directory: C:/Users/User/Desktop/RubyTutorials/testdev/vendor/bundle/ruby/2.6.0/gems/puma-3.12.1/ext/puma_http11
+make "DESTDIR=" install
+bash.exe: warning: could not find /tmp, please create!
+/usr/bin/install -c -m 0755 puma_http11.so ./.gem.20200208-4956-19v5gcq/puma

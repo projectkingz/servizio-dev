@@ -1,0 +1,69 @@
+<section class="hero is-primary is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8-table is-8-desktop is-8-widescreen">
+          <div class="box">
+
+            <div class="filed has-text-centered">
+              <strong>Administrator Sign Up</strong>
+            </div>
+
+
+
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
+
+            <div class="field">
+              <%= f.label :full_name, class: "label" %>
+              <%= f.text_field :full_name, autofocus: true, autocomplete: "full_name", placeholder: 'Enter your full name', class: "input" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :email, class: "label" %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Enter your email address',  class: "input" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :username, class: "label" %>
+              <%= f.text_field :username, autofocus: true, autocomplete: "username", placeholder: 'Enter username', class: "input" %>
+            </div>
+
+            <div class="field">
+                <%= f.label :password, class: "label" %>
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %>
+                <%= f.password_field :password, class: 'input', placeholder: 'Enter password', autofocus: true, autocomplete: "password"  %>
+              </div>
+
+              <div class="field">
+                 <%= f.label :password_confirmation, class: "label" %>
+                  <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Confirm password', autofocus: true, autocomplete: "new-password" %>
+              </div>
+
+
+                <div class="field">
+                  <%= f.submit(@admin.new_record? ? "Sign up":"Update account", class: 'button is-danger is-fullwidth') %>
+               </div>
+
+               <div class="field">
+                 <%= link_to 'Sign in with Facebook', user_facebook_omniauth_authorize_path, class: "button is-link is-fullwidth m-t-10 m-b-10" %>
+               </div>
+
+              <% end %>
+
+              <br />
+                       <div>
+                          <%= link_to 'Return to active listings', @listing %>
+                       </div>
+
+             <!-- render "devise/shared/links" -->
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,117 @@
+<section class="hero is-primary is-fullheight">
+  <div class="hero-body">
+<div class="container">
+  <div class="columns is-centered">
+    <div class="column is-8-table is-8-desktop is-8-widescreen">
+      <div class="box">
+
+
+        <%= form_for(@user, :url => wizard_path, :method => :put) do |f| %>
+          <%= fields_for :contact do |ff| %>
+
+        <div class="container">
+        <p class="panel-heading">
+        Contact Details
+        </p>
+
+        <div class="field is-horizontal">
+        <div class="field-body">
+        <div class="field">
+        <label class="label">First Name</label>
+        <p class="control is-expanded has-icons-left has-icons-right">
+        <%= ff.text_field :first_name, autofocus: true,  :placeholder => "Your First Name", class: "input", required: "true", autocomplete: "first_name" %>
+        <span class="icon is-small is-left">
+        <i class="fas fa-home"></i>
+        </span>
+        <span class="icon is-small is-right">
+        <i class="fas fa-check"></i>
+        </span>
+        </p>
+        </div>
+        <div class="field">
+        <label class="label">Last Name </label>
+        <p class="control is-expanded has-icons-left has-icons-right">
+        <%= ff.text_field :last_name, autofocus: true,  :placeholder => "Last Name", class: "input", required: "true", autocomplete: "last_name" %>
+        <span class="icon is-small is-left">
+        <i class="fas fa-home"></i>
+        </span>
+        <span class="icon is-small is-right">
+        <i class="fas fa-check"></i>
+        </span>
+        </p>
+        </div>
+        </div>
+        </div>
+
+        <div class="field is-horizontal">
+        <div class="field-body">
+        <div class="field">
+        <label class="label">Home Phone</label>
+        <p class="control is-expanded has-icons-left has-icons-right">
+        <%= ff.text_field :home_phone, autofocus: true,  :placeholder => "01483 641541", class: "input", required: "true", autocomplete: "home_phone" %>
+        <span class="icon is-small is-left">
+        <i class="fas fa-home"></i>
+        </span>
+        <span class="icon is-small is-right">
+        <i class="fas fa-check"></i>
+        </span>
+        </p>
+        </div>
+        </div>
+        </div>
+
+        <div class="field is-horizontal">
+        <div class="field-body">
+        <div class="field">
+        <label class="label">Mobile Phone</label>
+        <p class="control is-expanded has-icons-left has-icons-right">
+        <%= ff.text_field :mobile_phone, autofocus: true,  :placeholder => "07402 611112", class: "input", required: "true", autocomplete: "mobile_phone" %>
+        <span class="icon is-small is-left">
+        <i class="fas fa-home"></i>
+        </span>
+        <span class="icon is-small is-right">
+        <i class="fas fa-check"></i>
+        </span>
+        </p>
+        </div>
+        </div>
+        </div>
+
+        <div class="field is-horizontal">
+        <div class="field-body">
+        <div class="field">
+        <label class="label">Work Phone</label>
+        <p class="control is-expanded has-icons-left has-icons-right">
+        <%= ff.text_field :work_phone, autofocus: true,  :placeholder => "01438 740261", class: "input", required: "true", autocomplete: "work_phone" %>
+        <span class="icon is-small is-left">
+        <i class="fas fa-home"></i>
+        </span>
+        <span class="icon is-small is-right">
+        <i class="fas fa-check"></i>
+        </span>
+        </p>
+        </div>
+        </div>
+        </div>
+
+
+
+            <div class="field">
+              <%= f.submit(@user.new_record? ? "Sign up":"Save Contact...", class: 'button is-link is-active') %>
+           </div>
+
+
+
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+
+
+<% link_to 'skip', next_wizard_path %>

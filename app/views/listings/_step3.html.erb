@@ -1,0 +1,13 @@
+<div class="step-content <%= 'is-active' if @step == 3 %>">
+    <div class="form-group control col-md-12 mb-4">
+      <%= f.label :description, 'Description : ' %>
+      <%= f.rich_text_area :description, rows: 50, cols: 50, class: 'input is-focused form-control', type: 'text', placeholder: 'Describe Price Element', autofocus: true , size: "5x5"
+      %>
+    </div>
+
+
+    <div class="form-group control col-md-12 mb-4">
+      <%= f.label :budget, 'Budget : ' %>
+      <%= f.number_field :budget, autocomplete: "budget", class: "form-control input is-focused" %>
+    </div>
+</div>

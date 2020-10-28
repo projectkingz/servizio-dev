@@ -1,0 +1,28 @@
+current directory: C:/Users/User/Desktop/RubyTutorials/testdev/vendor/bundle/ruby/2.6.0/gems/ruby-prof-1.0.0/ext/ruby_prof
+C:/Ruby26-x64/bin/ruby.exe -I C:/Ruby26-x64/lib/ruby/2.6.0 -r ./siteconf20200208-12328-1xv5hq9.rb extconf.rb
+checking for rb_tracearg_callee_id() in ruby.h... yes
+creating Makefile
+
+current directory: C:/Users/User/Desktop/RubyTutorials/testdev/vendor/bundle/ruby/2.6.0/gems/ruby-prof-1.0.0/ext/ruby_prof
+make "DESTDIR=" clean
+
+current directory: C:/Users/User/Desktop/RubyTutorials/testdev/vendor/bundle/ruby/2.6.0/gems/ruby-prof-1.0.0/ext/ruby_prof
+make "DESTDIR="
+generating ruby_prof-x64-mingw32.def
+compiling rp_allocation.c
+compiling rp_call_info.c
+compiling rp_measure_allocations.c
+compiling rp_measure_memory.c
+compiling rp_measure_process_time.c
+compiling rp_measure_wall_time.c
+compiling rp_measurement.c
+compiling rp_method.c
+compiling rp_profile.c
+compiling rp_stack.c
+compiling rp_thread.c
+compiling ruby_prof.c
+linking shared-object ruby_prof.so
+
+current directory: C:/Users/User/Desktop/RubyTutorials/testdev/vendor/bundle/ruby/2.6.0/gems/ruby-prof-1.0.0/ext/ruby_prof
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 ruby_prof.so ./.gem.20200208-12328-ho847o

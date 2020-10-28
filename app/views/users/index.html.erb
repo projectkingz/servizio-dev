@@ -1,0 +1,35 @@
+<div class="container tn_top_bottom_spacer">
+    <h3 align="center"> Servizio Users </h3>
+    <div align="center">
+            <% @user.each do |user| %>
+              <ul class = "user-listing">
+                      <div class="row">
+                            <div class="col-md-4">
+                                        <li><%= image_tag user_avatar(user, 150), class: "rounded-circle mx-auto d-block" %><li>
+                                                <li class="listing-title">
+                                                  <%= link_to user.username, user_path(user) %>
+                                                </li>
+                            </div>
+<div class="col-md-8 text-left">
+      <li><%= pluralize(user.listings.count, "job") if user.listings %> posted by <%= user.username %></li>
+      <% if user_signed_in? || current_admin %>
+        <li><%= link_to "Delete this user", user_path(user), method: :delete,
+          data: { confirm: "Are you sure you want to delete the user and their articles ?"} %>
+        </li>
+      <% end %>
+</div>
+
+                        </div>
+                </ul>
+        <% end %>
+            <div class="digg_pagination">
+              <div align="center">
+                  <div class="page_info">
+                    <%= page_entries_info @user %>
+                  </div>
+                    <%= will_paginate @user  %>
+                  </div>
+            </div>
+
+    </div>
+</div>

@@ -1,0 +1,97 @@
+<section class="section">
+  <div class="container-fluid">
+    <p class="title">Your Requested Bookings</p>
+
+      <table class="table is-fullwidth">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Created On</th>
+            <th>Expires In</th>
+            <th>Title</th>
+            <th>When Required ?</th>
+            <th>Deposit Required</th>
+            <th>Verified ?</th>
+            <th>Views</th>
+            <th>Actions</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if @listings.blank? %>
+              <tr>
+                <td colspan="12" class: ><h1>NOTHING TO SHOW HERE</h1><td>
+              </tr>
+          <% end %>
+          <% @listings.each do |l| %>
+          <tr>
+            <td><%= l.category.name %></td>
+            <td><%= l.created_at.strftime('%d %b %Y') %></td>
+            <td>
+              <div class="countdown-class" data-due-date=<%= l.expiry_date.to_date %> ></div>
+            </td>
+            <td><%= link_to truncate(l.title, length: 50), listing_path(l) %></td>
+            <td><%= l.urgency.name %></td>
+            <td>£10</td>
+            <td>Yes</td>
+            <td>9999</td>
+            <td>
+              Pending
+            </td>
+            <td>
+
+              </td>
+
+            <td>
+
+            </td>
+          </tr>
+          <% if l.expiry_date.to_date - Date.today.to_date <= 1 %>
+          <script type="text/javascript">
+                $(".countdown-class").each(function() {
+                  $(this).countdown($(this).data("due-date"), function(event) {
+                    $(this).text(event.strftime('%I hour%!I %M min%!M'));
+                  });
+                });
+          </script>
+            <% elsif l.expiry_date.to_date - Date.today.to_date < 7 %>
+            <script type="text/javascript">
+                $(".countdown-class").each(function() {
+                  $(this).countdown($(this).data("due-date"), function(event) {
+                    $(this).text(event.strftime('%D day%!D'));
+                  });
+                });
+            </script>
+            <% elsif l.expiry_date.to_date - Date.today.to_date < 31 %>
+            <script type="text/javascript">
+                $(".countdown-class").each(function() {
+                  $(this).countdown($(this).data("due-date"), function(event) {
+                    $(this).text(event.strftime('%W week%!W'));
+                  });
+                });
+            </script>
+            <% elsif l.expiry_date.to_date - Date.today.to_date < 365 %>
+            <script type="text/javascript">
+                $(".countdown-class").each(function() {
+                  $(this).countdown($(this).data("due-date"), function(event) {
+                    $(this).text(event.strftime('%m month%!m'));
+                  });
+                });
+            </script>
+            <% else %>
+            <script type="text/javascript">
+            $(".countdown-class").each(function() {
+              $(this).countdown($(this).data("due-date"), function(event) {
+                $(this).text(event.strftime('%Y year%!Y'));
+              });
+            });
+            </script>
+            <% end %>
+          <% end %>
+
+
+
+        </tbody>
+      </table>
+  </div>
+</section>

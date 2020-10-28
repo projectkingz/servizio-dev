@@ -1,0 +1,21 @@
+<div class="step-content <%= 'is-active' if @step == 1 %>">
+        <div class="form-group control col-md-12 mb-4">
+          <label class="label">Give Your Job | Listing A Title</label>
+          <%= f.text_field :title, autocomplete: "title", class: "form-control input is-focused" %>
+        </div>
+
+        <div class="form-group control col-md-12 mb-4">
+          <%= f.label :category, 'Pick A Category Most Appropriate' %>
+              <div class= 'is-focused field has-addons control is-expanded select is-fullwidth'>
+                    <%= f.select(:category_id, options_for_select(@categories.map{ |c| [c.name, c.id] }, selected: @listing.category_id)) %>
+              </div>
+        </div>
+
+        <div class="form-group control col-md-12 mb-4">
+          <%= f.label :urgency, 'How Soon Do You Need This Done ' %>
+              <div class= 'is-focused field has-addons control is-expanded select is-fullwidth'>
+                    <%= f.select(:urgency_id, options_for_select(@urgencies.map{ |c| [c.name, c.id] }, selected: @listing.urgency_id)) %>
+              </div>
+        </div>
+
+</div>

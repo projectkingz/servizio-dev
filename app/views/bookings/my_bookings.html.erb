@@ -1,0 +1,86 @@
+<section class="section">
+  <div class="container">
+    <p class="title">Your Requested Bookings</p>
+
+      <table class="table is-fullwidth">
+        <thead>
+          <tr>
+            <th>Created Date</th>
+            <th>Supplier Offer</th>
+            <th>Supplier</th>
+            <th>Offer Price</th>
+            <th>Tip Offered</th>
+            <th>Booking For Date</th>
+            <th>Status</th>
+            <th>Action</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if @bookings.blank? %>
+              <tr>
+                <td colspan="6" class: ><h1>NOTHING TO SHOW HERE</h1><td>
+              </tr>
+          <% end %>
+          <% @bookings.each do |b| %>
+          <tr>
+            <td><%= b.created_at.strftime('%d, %b, %Y') %></td>
+            <td><%= link_to b.offer.title, offer_path(b.offer) %></td>
+            <td><%= b.offer.supplier.username %></td>
+            <td>£ <%= b.offer.price %></td>
+            <td>£ <%= b.tip_offered %></td>
+            <td><%= b.booking_date.strftime('%b, %d, %Y') %></td>
+            <td>
+              <span class="tag <%= 'is-warning' if b.pending? %>
+                                <%= 'is-success' if b.accepted? %>
+                                <%= 'is-danger' if b.rejected? %>
+                                 <%= '' if b.withdrawn?  %>
+                                 ">
+              <%= b.status.capitalize %>
+            </td>
+            <td>
+              <% if b.pending? %>
+                    <%= link_to edit_booking_path(b), method: :put,
+                                # data: { confirm: "Are you sure ?"},
+                                class: "button is-small is-primary is-outlined #{'is-hidden' if b.rejected? }" do %>
+                          <span class="icon"><i class="fas fa-user-edit fa-lg"></i></span>
+                          <span>Edit</span>
+                    <% end %>
+                          <%= link_to b, method: :put,
+                                      data: { confirm: "Are you sure ?"},
+                                      class: "button is-small is-danger is-outlined #{'is-hidden' if !b.pending? }" do %>
+                                <span class="icon"><i class="far fa-times-circle fa-lg"></i></span>
+                                <span>Withdraw</span>
+                          <% end %>
+              <% elsif b.accepted?  %>
+                    <%= link_to b, method: :put,
+                                data: { confirm: "Are you sure ?"},
+                                class: "button is-small is-primary is-outlined #{'is-hidden' if !b.accepted? }" do %>
+                          <span class="icon"><i class="far fa-check-circle fa-lg"></i></span>
+                          <span>Reschedule</span>
+                    <% end %>
+                    <%= link_to reject_booking_path(b), method: :put,
+                                                        data: { confirm: "Are you sure ?"},
+                                                        class: "button is-small is-danger is-outlined" do %>
+                          <span class="icon"><i class="far fa-times-circle fa-lg"></i></span>
+                          <span>Cancel</span>
+                    <% end %>
+              <% end %>
+              </td>
+
+            <td>
+            <% if b.withdrawn? %>
+                  <%= link_to b.offer, method: :get,
+                              # data: { confirm: "Are you sure ?"},
+                              class: "button is-small is-primary is-outlined #{'is-hidden' if b.pending? }" do %>
+                        <span class="icon"><i class="fas fa-user-edit fa-lg"></i></span>
+                        <span>Book Again</span>
+                  <% end %>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
+</section>

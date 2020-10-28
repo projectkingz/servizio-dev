@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift(File.dirname(File.realpath(__FILE__)) + '/../lib')
+require 'noty'
+
+Noty.send case ARGV.first
+          when /\Ahttp/
+            :bookmark
+          when 'help', '-h', '--help'
+            :help
+          when 'version', '-v', '--version'
+            :version
+          else
+            :search
+          end

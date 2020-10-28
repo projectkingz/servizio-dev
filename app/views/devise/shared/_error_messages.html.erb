@@ -1,0 +1,29 @@
+<% if resource.errors.any? %>
+<div class='row'>
+  <div class='col-sm-12'>
+    <div class='card text-danger alert-danger'>
+      <div class='card-header'>
+        <h8 class='card-title'>
+          <%= pluralize(resource.errors.count, "error") %>
+          prohibited this article from being saved:
+          </h8>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
+
+
+<% if resource.errors.any? %>
+  <script>
+    <% resource.errors.full_messages.each do |msg| %>
+        new Noty ({
+          type: 'error',
+          layout: 'topRight',
+          timeout: '3000',
+          theme: 'sunset',
+          text: '<%= msg %>'
+        }).show()
+      <% end %>
+    </script>
+<% end %>

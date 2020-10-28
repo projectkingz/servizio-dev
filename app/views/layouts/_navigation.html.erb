@@ -1,0 +1,211 @@
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top mb-1">
+
+      <%= link_to "tbee logo", root_path, class: "navbar-brand", id: "logo" %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a><%= link_to "Home", root_path, class: "nav-link" %><span class="sr-only">(current)</span></a>
+          </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Trades
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a><%= link_to "All Trades", trades_path, class: "dropdown-item" %></a>
+                  <a><%= link_to "Trade Sign In", new_trade_session_path, class: "dropdown-item"  %>
+                    <a><%= link_to "Trade Sign Up", new_trade_registration_path, class: "dropdown-item" %></a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Clients
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a><%= link_to "All Clients", users_path, class: "dropdown-item" %></a>
+                  <a><%= link_to "Client Sign In", new_user_session_path, class: "dropdown-item"  %>
+                    <a><%= link_to "Client Sign Up", new_user_registration_path, class: "dropdown-item" %></a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </li>
+
+                              <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Jobs
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+
+
+                                  <a class="dropdown-item" href="#">Another action</a>
+                                  <% if user_signed_in? || admin_signed_in?  %>
+                                  <div class="dropdown-divider"></div>
+                                  <a><%= link_to "Create New Listings Section", new_section_path, class: "dropdown-item"  %></a>
+                                  </div>
+                                  <% end %>
+                              </li>
+
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+
+            <ul class="navbar-nav ml-auto">
+
+              <li class="nav-item"><a><%= link_to "Post Job", new_listing_path, class: "nav-link" %></a></li>
+              <li class="nav-item"><a><%= link_to "Browse Jobs", new_user_registration_path, class: "nav-link" %></a></li>
+
+              <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <% if admin_signed_in? %>
+                        Your <%= "Admin" if current_admin %> Profile
+                        <% elsif trade_signed_in? %>
+                        Your <%= "Trade" if current_trade %> Profile
+                        <% elsif user_signed_in? %>
+                        Your <%= "User" if current_user %> Profile
+                        <% else %>
+                        Guest Profile
+                      <% end %>
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                      <% if admin_signed_in? %>
+                      <a><%= link_to "View profile", current_admin, class: "dropdown-item", obj: @users %></a>
+                      <a><%= link_to "Edit profile", edit_admin_registration_path, class: "dropdown-item", obj: @users %></a>
+                      <%= link_to 'User Dashboard', admins_dashboard_path, class:'navbar-item' %>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <div class="dropdown-divider"></div>
+                      <a><%= link_to "Sign out", destroy_admin_session_path, method: :delete, class: "dropdown-item" %></a>
+                      <% elsif trade_signed_in? %>
+                      <a><%= link_to "View profile", current_trade, class: "dropdown-item", obj: @users %></a>
+                      <a><%= link_to "Edit profile", edit_trade_registration_path, class: "dropdown-item", obj: @users %></a>
+                      <a class="dropdown-item" href="#">Dashboard</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <div class="dropdown-divider"></div>
+                      <a><%= link_to "Sign out", destroy_trade_session_path, method: :delete, class: "dropdown-item" %></a>
+                      <% elsif user_signed_in? %>
+                      <a><%= link_to "View profile", current_user, class: "dropdown-item", obj: @users %></a>
+                      <a><%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item", obj: @users %></a>
+                      <a class="dropdown-item" href="#">Dashboard</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <div class="dropdown-divider"></div>
+                      <a><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></a>
+                      <% else %>
+                      <a class="dropdown-item" href="#">Another action</a>
+                          <li class="nav-item">
+                            <a><%= link_to "Sign in", new_user_session_path, class: "nav-link" %><span class="sr-only">(current)</span></a>
+                          </li>
+                            <li class="nav-item">
+                              <a><%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary" %></a>
+                            </li>
+                  <% end %>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+</nav>
+
+<% if (user_signed_in?) || (trade_signed_in?) && !current_page?(root_path) && !current_page?("/listings/#{params[:id]}") && !current_page?("/users/#{params[:id]}") %>
+
+                <nav class="navbar has-shadow mb-1" style="z-index: 5">
+                  <div class="container">
+                    <div class="navbar">
+                      <% if user_signed_in? %>
+                        <%= link_to 'User Dashboard', users_dashboard_path, class:'navbar-item' %>
+
+
+                            <div class="navbar-item has-dropdown is-hoverable">
+                              <a class="navbar-link">Job Listings</a>
+                              <div class="navbar-dropdown">
+
+                                <%= link_to 'Post A Job', new_listing_path, class: 'navbar-item' %>
+                                <%= link_to 'Manage Your Jobs', listings_client_listings_path, class: 'navbar-item' %>
+                                <%= link_to 'Job Quotes Received', client_quotes_path, class: 'navbar-item' %>
+                              </div>
+                            </div>
+
+                            <div class="navbar-item has-dropdown is-hoverable">
+                              <a class="navbar-link">Offers From Traders</a>
+                              <div class="navbar-dropdown">
+                                <%= link_to 'Your Favourites', my_bookings_path, class: 'navbar-item' %>
+                                <%= link_to 'Booked Offers', my_bookings_path, class: 'navbar-item' %>
+                              </div>
+                            </div>
+
+                            <div class="navbar-item has-dropdown is-hoverable">
+                              <a class="navbar-link">Your Payments</a>
+                              <div class="navbar-dropdown">
+                              </div>
+                            </div>
+
+                            <%= link_to "Message Centre", users_dashboard_path, class:"navbar-item" %>
+
+                      <% elsif trade_signed_in? %>
+
+                        <%= link_to 'Trade Dashboard', trades_dashboard_path, class:'navbar-item' %>
+
+                        <div class="navbar-item has-dropdown is-hoverable">
+                          <a class="navbar-link">Trade Offer</a>
+                          <div class="navbar-dropdown">
+                            <%= link_to 'Create A Trade Offer', new_offer_path, class: "navbar-item" %>
+                            <%= link_to 'Manage A Trade Offer', offers_path, class: "navbar-item" %>
+                          </div>
+                        </div>
+                        <div class="navbar-item has-dropdown is-hoverable">
+                          <a class="navbar-link">All Trade Offers</a>
+                          <div class="navbar-dropdown">
+                            <%= link_to 'Active Offers', all_offers_path, class: "navbar-item" %>
+                            <a class="navbar-item">Offers Sent</a>
+                          </div>
+                        </div>
+
+                      <% else admin_signed_in? %>
+                        <%= link_to 'Admin Dashboard', admins_dashboard_path, class:'navbar-item' %>
+                      <% end %>
+
+                        <% if user_signed_in? %>
+
+                        <% elsif trade_signed_in? %>
+                          <%= link_to "Earnings", trades_dashboard_path, class:"navbar-item" %>
+                          <%= link_to "Messages", trades_dashboard_path, class:"navbar-item" %>
+                        <% else admin_signed_in? %>
+                          <%= link_to "Earnings", admins_dashboard_path, class:"navbar-item" %>
+                          <%= link_to "Messages", admins_dashboard_path, class:"navbar-item" %>
+                        <% end %>
+
+                        <div class="navbar-item has-dropdown is-hoverable">
+                          <a class="navbar-link">Settings</a>
+                          <div class="navbar-dropdown">
+                            <a class="navbar-item">Payment Method</a>
+                            <a class="navbar-item">Payout Method</a>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                </nav>
+
+<% end %>
+
+
+<script>
+  $(document).ready(function() {
+    //check for click events on the navbar burger icon
+    $(".navbar-burger").click(function(){
+
+      //toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+      $(".navbar-burger").toggleClass("is-active");
+      $(".navbar-menu").toggleClass("is-active");
+    })
+  })
+</script>

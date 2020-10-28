@@ -1,0 +1,36 @@
+<section class="section">
+  <div class="container">
+    <p class="title">Manage Client Quotes</p>
+
+    <table class='table is-fullwidth'>
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Date Posted</th>
+          <th>Title</th>
+          <th>Location Of Job</th>
+          <th>Client Name</th>
+          <th>Booking For</th>
+          <th>Deposit Paid</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @quotes.blank? %>
+              <tr>
+                <td colspan='6' class='has-text-centered'><h1>No Client quotes</h1></td>
+              </tr>
+        <% else @quotes.each do |q| %>
+        <tr>
+            <td><%= %></td>
+
+        </tr>
+
+        <% end %>
+
+      </tbody>
+    </table>
+
+  </div>
+</section>
